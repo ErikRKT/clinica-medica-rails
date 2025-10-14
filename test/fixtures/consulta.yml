@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  medico_id: 1
+  paciente_id: 1
+  data_consulta: 2025-10-13 10:35:51
+
+two:
+  medico_id: 1
+  paciente_id: 1
+  data_consulta: 2025-10-13 10:35:51
