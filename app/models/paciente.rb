@@ -6,16 +6,16 @@ class Paciente < ApplicationRecord
   validates :nome, :cpf, presence: true
   validates :cpf, uniqueness: true
 
-  require 'csv'
+  require "csv"
 
   def self.to_csv
     attributes = %w[id nome cpf]
 
     CSV.generate(headers: true) do |csv|
-      csv << attributes.map(&:capitalize) 
+      csv << attributes.map(&:capitalize)
 
       all.each do |paciente|
-        csv << attributes.map{ |attr| paciente.send(attr) }
+        csv << attributes.map { |attr| paciente.send(attr) }
       end
     end
   end
