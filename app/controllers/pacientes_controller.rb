@@ -1,9 +1,15 @@
 class PacientesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_paciente, only: %i[ show edit update destroy ]
 
   # GET /pacientes or /pacientes.json
   def index
-    @pacientes = Paciente.all
+    @pacientes = Paciente.order(:nome).page(params[:page]).per(10)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @pacientes.to_csv, filename: "pacientes-#{Date.today}.csv" }
+    end
   end
 
   # GET /pacientes/1 or /pacientes/1.json

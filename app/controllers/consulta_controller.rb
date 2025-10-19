@@ -1,4 +1,5 @@
 class ConsultaController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_consultum, only: %i[ show edit update destroy ]
 
   # GET /consulta or /consulta.json

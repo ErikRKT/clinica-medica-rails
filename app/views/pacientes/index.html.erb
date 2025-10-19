@@ -13,4 +13,10 @@
   <% end %>
 </div>
 
+<%= paginate @pacientes %>
+
+<p>
+  <%= link_to "Gerar CSV", pacientes_path(format: :csv), class: 'btn btn-success' %>
+</p>
+
 <%= link_to "New paciente", new_paciente_path %>

@@ -1,11 +1,22 @@
 class MedicosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_medico, only: %i[ show edit update destroy ]
 
   # GET /medicos or /medicos.json
   def index
     @medicos = Medico.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = Prawn::Document.new
+        pdf.text "Relatório de Médicos", size: 20, style: :bold
+        @medicos.each do |medico|
+          pdf.text "Nome: #{medico.nome} | CRM: #{medico.crm} | Especialidade: #{medico.especialidade}"
+        end
+        send_data pdf.render, filename: "relatorio_medicos.pdf", type: "application/pdf", disposition: "inline"
+      end
+    end
   end
-
   # GET /medicos/1 or /medicos/1.json
   def show
   end

@@ -13,4 +13,8 @@
   <% end %>
 </div>
 
+<p>
+  <%= link_to "Gerar PDF", medicos_path(format: :pdf), class: 'btn btn-danger', target: '_blank' %>
+</p>
+
 <%= link_to "New medico", new_medico_path %>
