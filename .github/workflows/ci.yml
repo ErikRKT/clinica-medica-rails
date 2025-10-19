@@ -19,6 +19,9 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: false
 
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 3
+
       - name: Prepare bootsnap cache
         run: |
           mkdir -p tmp/cache/bootsnap
@@ -40,6 +43,9 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: false
 
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 3
+
       - name: Scan for security vulnerabilities in JavaScript dependencies
         run: bin/importmap audit
 
@@ -54,6 +60,9 @@ jobs:
         with:
           ruby-version: .ruby-version
           bundler-cache: false
+
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 3
 
       - name: Prepare bootsnap cache
         run: |
@@ -93,6 +102,9 @@ jobs:
         with:
           ruby-version: .ruby-version
           bundler-cache: false
+
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 3
 
       - name: Prepare bootsnap cache
         run: |
