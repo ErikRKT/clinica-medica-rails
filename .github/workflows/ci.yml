@@ -84,6 +84,11 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Prepare bootsnap cache
+        run: |
+          mkdir -p tmp/cache/bootsnap
+          chmod -R 0777 tmp/cache
+
       - name: Run tests
         env:
           RAILS_ENV: test
