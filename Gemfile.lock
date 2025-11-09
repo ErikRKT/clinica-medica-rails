@@ -130,6 +130,9 @@ GEM
     google-protobuf (4.33.0-x64-mingw-ucrt)
       bigdecimal
       rake (>= 13)
+    google-protobuf (4.33.0-x86_64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.2.2)
@@ -202,6 +205,8 @@ GEM
     net-ssh (7.3.0)
     nio4r (2.7.4)
     nokogiri (1.18.10-x64-mingw-ucrt)
+      racc (~> 1.4)
+    nokogiri (1.18.10-x86_64-linux-gnu)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     ostruct (0.6.3)
@@ -311,11 +316,13 @@ GEM
       rubocop-performance (>= 1.24)
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
-    rubyzip (3.2.0)
+    rubyzip (3.2.2)
     sass-embedded (1.93.3-x64-mingw-ucrt)
       google-protobuf (~> 4.31)
+    sass-embedded (1.93.3-x86_64-linux-gnu)
+      google-protobuf (~> 4.31)
     securerandom (0.4.1)
-    selenium-webdriver (4.37.0)
+    selenium-webdriver (4.38.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -349,6 +356,7 @@ GEM
     stringio (3.1.7)
     thor (1.4.0)
     thruster (0.1.15)
+    thruster (0.1.15-x86_64-linux)
     timeout (0.4.3)
     tsort (0.2.0)
     ttfunk (1.8.0)
@@ -383,6 +391,7 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
