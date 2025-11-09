@@ -19,6 +19,8 @@ gem "jbuilder"
 
 gem "dartsass-rails"
 
+# Gemfile
+
 gem "bootstrap", "~> 5.3"
 
 gem "devise-bootstrap-views"
