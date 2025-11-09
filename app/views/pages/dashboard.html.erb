@@ -1,0 +1,43 @@
+<div class="jumbotron">
+  <h1 class="display-4">Bem-vindo(a) à Clínica Médica!</h1>
+  <p class="lead">Selecione uma opção abaixo para gerenciar o sistema.</p>
+</div>
+
+<div class="row">
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Pacientes</h5>
+        <p class="card-text">Visualizar, cadastrar ou editar pacientes.</p>
+        <%= link_to "Gerenciar Pacientes", pacientes_path, class: "btn btn-primary" %>
+        <%= link_to "Novo Paciente", new_paciente_path, class: "btn btn-outline-primary" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Médicos</h5>
+        <p class="card-text">Visualizar, cadastrar ou editar médicos.</p>
+        <%= link_to "Gerenciar Médicos", medicos_path, class: "btn btn-primary" %>
+        <%= link_to "Novo Médico", new_medico_path, class: "btn btn-outline-primary" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Consultas</h5>
+        <p class="card-text">Marcar novas consultas ou ver o histórico.</p>
+        <%# Usando o helper 'consultum_index_path' que descobrimos %>
+        <%= link_to "Ver Consultas", consultum_index_path, class: "btn btn-primary" %>
+        <%# Usando o helper padrão de 'new' %>
+        <%= link_to "Marcar Consulta", new_consultum_path, class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+
+</div>

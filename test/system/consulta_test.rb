@@ -14,7 +14,7 @@ class ConsultaTest < ApplicationSystemTestCase
     visit consulta_url
     click_on "New consultum"
 
-    fill_in "Data consulta", with: @consultum.data_consulta
+    fill_in "Data consultum", with: @consultum.data_consulta
     fill_in "Medico", with: @consultum.medico_id
     fill_in "Paciente", with: @consultum.paciente_id
     click_on "Create Consultum"
@@ -27,7 +27,7 @@ class ConsultaTest < ApplicationSystemTestCase
     visit consultum_url(@consultum)
     click_on "Edit this consultum", match: :first
 
-    fill_in "Data consulta", with: @consultum.data_consulta.to_s
+    fill_in "Data consultum", with: @consultum.data_consulta.to_s
     fill_in "Medico", with: @consultum.medico_id
     fill_in "Paciente", with: @consultum.paciente_id
     click_on "Update Consultum"

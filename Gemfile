@@ -17,7 +17,11 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-gem "twitter-bootstrap-rails"
+gem "dartsass-rails"
+
+gem "bootstrap", "~> 5.3"
+
+gem "devise-bootstrap-views"
 
 gem "devise"
 

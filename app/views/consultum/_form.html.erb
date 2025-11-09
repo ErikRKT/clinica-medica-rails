@@ -1,0 +1,47 @@
+<%
+  if consultum.new_record?
+    form_url = consultum_index_path
+    # Se o 'consultum' já existe, o form vai para 'consultum_path(consultum)' (para atualizar).
+  else
+    form_url = consultum_path(consultum)
+  end
+%>
+
+<%= form_with(model: consultum, url: form_url) do |form| %>
+
+  <%# O resto do seu formulário (mensagens de erro, campos, etc.) %>
+  <% if consultum.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(consultum.errors.count, "error") %> prohibited this consultum from being saved:</h2>
+
+      <ul>
+        <% consultum.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :medico_id, "Médico" %>
+    <%= form.collection_select :medico_id, Medico.order(:nome), :id, :nome,
+                               { prompt: 'Selecione um médico' },
+                               { class: 'form-control' } %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :paciente_id, "Paciente" %>
+    <%= form.collection_select :paciente_id, Paciente.order(:nome), :id, :nome,
+                               { prompt: 'Selecione um paciente' },
+                               { class: 'form-control' } %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :data_consulta %>
+    <%= form.datetime_field :data_consulta, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

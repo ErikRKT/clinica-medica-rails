@@ -1,10 +1,9 @@
-<p style="color: green"><%= notice %></p>
 
 <%= render @medico %>
 
 <div>
-  <%= link_to "Edit this medico", edit_medico_path(@medico) %> |
-  <%= link_to "Back to medicos", medicos_path %>
+  <%= link_to "Editar esse médico", edit_medico_path(@medico), class: "btn btn-primary btn-sm" %> |
+  <%= link_to "Voltar para médicos", medicos_path, class: "btn btn-secondary btn-sm" %>
 
-  <%= button_to "Destroy this medico", @medico, method: :delete %>
+  <%= button_to "Apagar este médico", @medico, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger btn-sm" %>
 </div>

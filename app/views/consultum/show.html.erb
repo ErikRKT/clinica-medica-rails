@@ -1,0 +1,33 @@
+
+<div class="card mt-3">
+  <div class="card-header">
+    <h3>Detalhes da Consulta</h3>
+  </div>
+  <div class="card-body">
+    <p>
+      <strong>Médico:</strong>
+      <%= @consultum.medico.nome %>
+    </p>
+
+    <p>
+      <strong>Especialidade:</strong>
+      <%= @consultum.medico.especialidade %>
+    </p>
+
+    <p>
+      <strong>Paciente:</strong>
+      <%= @consultum.paciente.nome %>
+    </p>
+
+    <p>
+      <strong>Data e Hora:</strong>
+      <%= @consultum.data_consulta.strftime("%d/%m/%Y às %H:%M") %>
+    </p>
+  </div>
+</div>
+
+<div class="mt-3">
+  <%= link_to "Editar esta consulta", edit_consultum_path(@consultum), class: "btn btn-primary" %>
+  <%= link_to "Voltar para consultas", consultum_index_path, class: "btn btn-secondary" %>
+  <%= button_to "Apagar esta consulta", @consultum, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger mt-2" %>
+</div>

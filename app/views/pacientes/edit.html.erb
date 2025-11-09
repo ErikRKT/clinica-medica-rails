@@ -1,12 +1,12 @@
-<% content_for :title, "Editing paciente" %>
+<% content_for :title, "Editando paciente" %>
 
-<h1>Editing paciente</h1>
+<h1>Editando paciente</h1>
 
 <%= render "form", paciente: @paciente %>
 
 <br>
 
 <div>
-  <%= link_to "Show this paciente", @paciente %> |
-  <%= link_to "Back to pacientes", pacientes_path %>
+  <%= link_to "Mostrar paciente", @paciente, class: "btn btn-primary btn-sm" %> |
+  <%= link_to "Voltar para pacientes", pacientes_path, class: "btn btn-secondary btn-sm"%>
 </div>

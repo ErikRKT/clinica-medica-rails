@@ -1,0 +1,12 @@
+<% content_for :title, "Editando consulta" %>
+
+<h1>Editando consulta</h1>
+
+<%= render "form", consultum: @consultum %>
+
+<br>
+
+<div>
+  <%= link_to "Mostrar consulta", @consultum %> |
+  <%= link_to "Voltar para consulta", consultum_index_path %>
+</div>

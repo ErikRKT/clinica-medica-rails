@@ -1,0 +1,38 @@
+
+<div class="d-flex justify-content-between align-items-center mt-3">
+  <h1>Consultas</h1>
+  <%= link_to "Marcar Nova Consulta", new_consultum_path, class: "btn btn-primary" %>
+</div>
+
+<div class="table-responsive mt-3">
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th>Paciente</th>
+      <th>Médico</th>
+      <th>Data e Hora</th>
+      <th colspan="3">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%# 1. Corrigi o @consulta.each do |consultum| %>
+    <% @consulta.each do |consultum| %>
+      <tr>
+        <%# 2. Mostramos os dados do paciente e médico associados %>
+        <td><%= consultum.paciente.nome %></td>
+        <td><%= consultum.medico.nome %></td>
+        <td><%= consultum.data_consulta.strftime("%d/%m/%Y às %H:%M") %></td>
+
+        <%# 3. Usamos os helpers de rota corretos que descobrimos %>
+        <td><%= link_to "Mostrar", consultum_path(consultum), class: "btn btn-info btn-sm" %></td>
+        <td><%= link_to "Editar", edit_consultum_path(consultum), class: "btn btn-secondary btn-sm" %></td>
+        <td><%= button_to "Apagar", consultum, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<%= paginate @consulta %>

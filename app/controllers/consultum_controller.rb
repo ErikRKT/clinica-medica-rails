@@ -1,32 +1,32 @@
-class ConsultaController < ApplicationController
+class ConsultumController < ApplicationController
   before_action :authenticate_user!
   before_action :set_consultum, only: %i[ show edit update destroy ]
 
-  # GET /consulta or /consulta.json
+  # GET /consultum or /consultum.json
   def index
-    @consulta = Consultum.all
+    # Adiciona o .page(params[:page]) do Kaminari
+    @consulta = Consultum.order(data_consulta: :desc).page(params[:page])
   end
-
-  # GET /consulta/1 or /consulta/1.json
+  # GET /consultum/1 or /consultum/1.json
   def show
   end
 
-  # GET /consulta/new
+  # GET /consultum/new
   def new
     @consultum = Consultum.new
   end
 
-  # GET /consulta/1/edit
+  # GET /consultum/1/edit
   def edit
   end
 
-  # POST /consulta or /consulta.json
+  # POST /consultum or /consultum.json
   def create
     @consultum = Consultum.new(consultum_params)
 
     respond_to do |format|
       if @consultum.save
-        format.html { redirect_to @consultum, notice: "Consultum was successfully created." }
+        format.html { redirect_to @consultum, notice: "Consulta marcada!" }
         format.json { render :show, status: :created, location: @consultum }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -35,11 +35,11 @@ class ConsultaController < ApplicationController
     end
   end
 
-  # PATCH/PUT /consulta/1 or /consulta/1.json
+  # PATCH/PUT /consultum/1 or /consultum/1.json
   def update
     respond_to do |format|
       if @consultum.update(consultum_params)
-        format.html { redirect_to @consultum, notice: "Consultum was successfully updated.", status: :see_other }
+        format.html { redirect_to @consultum, notice: "Consulta atualizada.", status: :see_other }
         format.json { render :show, status: :ok, location: @consultum }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -48,12 +48,12 @@ class ConsultaController < ApplicationController
     end
   end
 
-  # DELETE /consulta/1 or /consulta/1.json
+  # DELETE /consultum/1 or /consultum/1.json
   def destroy
     @consultum.destroy!
 
     respond_to do |format|
-      format.html { redirect_to consulta_path, notice: "Consultum was successfully destroyed.", status: :see_other }
+      format.html { redirect_to consultum_index_path, notice: "Consulta removida do sistema.", status: :see_other }
       format.json { head :no_content }
     end
   end

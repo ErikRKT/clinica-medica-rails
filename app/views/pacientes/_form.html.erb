@@ -1,8 +1,7 @@
 <%= form_with(model: paciente) do |form| %>
   <% if paciente.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(paciente.errors.count, "error") %> prohibited this paciente from being saved:</h2>
-
+    <div class="alert alert-danger">
+      <h2><%= pluralize(paciente.errors.count, "error") %> impediu este paciente de ser salvo:</h2>
       <ul>
         <% paciente.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,22 +10,28 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :nome, style: "display: block" %>
-    <%= form.text_field :nome %>
+  <div class="form-group mb-3">
+    <%= form.label :nome, class: "form-label" %>
+    <%= form.text_field :nome, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :cpf, style: "display: block" %>
-    <%= form.text_field :cpf %>
+  <div class="form-group mb-3">
+    <%= form.label :cpf, class: "form-label" %>
+    <%= form.text_field :cpf,
+                        class: 'form-control',
+                        placeholder: '123.456.789-00',
+                        pattern: '\d{3}\.\d{3}\.\d{3}-\d{2}',
+                        title: 'O formato deve ser: 123.456.789-00',
+                        maxlength: 14
+    %>
   </div>
 
-  <div>
-    <%= form.label :data_nascimento, style: "display: block" %>
-    <%= form.date_field :data_nascimento %>
+  <div class="form-group mb-3">
+    <%= form.label :data_nascimento, class: "form-label" %>
+    <%= form.date_field :data_nascimento, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit "Salvar", class: "btn btn-primary" %>
   </div>
 <% end %>

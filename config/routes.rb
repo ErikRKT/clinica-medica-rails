@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :consulta
+  resources :consultum
   resources :pacientes
   resources :medicos
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root to: "pages#dashboard"
 end
